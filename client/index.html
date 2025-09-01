@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Hentai Search - Find SOURCE</title>
+    <meta name="description" content="Find the source of hentai images using advanced AI">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+<!-- Header -->
+<section style="max-width: 1200px; margin: 0 auto; padding: 2rem 1rem;">
+	
+  <!-- Title and Tagline -->
+  <div style="text-align: center;">
+    <h1 style="font-size: 2.75rem; font-weight: bold;">
+      🔍 Reverse Hentai Image Search
+    </h1>
+    <p style="font-size: 1.5rem; color: #555;">
+      Fully client-side. Private. Fast.
+    </p>
+    <p style="font-size: 1.25rem; color: #888;">
+      Now indexing <strong>100,000 galleries</strong> — right in your browser.
+    </p>
+  </div>
+
+	<div style="display: flex; justify-content: flex-start; margin: -4.5rem -9.5rem 0rem;">
+        	<a href="https://github.com/sponsors/echi-code" target="_blank" rel="noopener">
+    		<img src="https://img.shields.io/badge/Sponsor-GitHub-%23ea4aaa?logo=githubsponsors&style=for-the-badge" alt="GitHub Sponsors">
+  		</a>
+            </div>
+            <div style="display: flex;  justify-content: flex-start; margin: -0.125rem -9.5rem 0rem;">
+                <a href="https://github.com/echicode/reverse-hentai-search" 
+                   target="_blank" 
+                   rel="noopener" 
+                   style="display: inline-flex; align-items: center; background: #24292e; padding: 10px 16px; border-radius: 6px; text-decoration: none;">
+                  <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" 
+                       alt="GitHub" 
+                       style="width: 24px; height: 24px; margin-right: 8px;">
+                  <span style="color: white; font-weight: 600;">Source Code</span>
+                </a>
+              </div>
+        </div>
+  <!-- Support button aligned right -->
+  <div style="display: flex; justify-content: flex-end; margin: -5rem -16rem 0rem;">
+    <a href="https://buymeacoffee.com/echicode" target="_blank" rel="noopener" class="bmc-button metallic-blue"
+      style="display: inline-flex; align-items: center; text-decoration: none; padding: 0.5em 1em; background-color: #ffdd00; border-radius: 6px;">
+      <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="Buy me a coffee"
+        style="height: 24px; vertical-align: middle; margin-right: 8px;">
+      <span style="font-size: 1.1em; font-weight: 600; color: #000;">Buy me a coffee</span>
+    </a>
+  </div>
+</section>
+</section>
+    <!-- Main Content with 3-Column Layout -->
+    <div id="main-layout">
+            <div id="main-content-inner">
+                <section class="panel upload-panel">
+                    <div class="panel-header">
+                        <h2>📤 Find SOURCE</h2>
+                        <p class="panel-description">Upload an image to find its source in our database</p>
+                    </div>
+                    
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">📁</div>
+                        <p class="upload-text">Click to select image</p>
+                        <p class="upload-hint">Supports: JPG, PNG, GIF, WebP</p>
+                        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                    </div>
+                    
+                    <!-- Advanced Options -->
+                    <details class="advanced-options">
+                        <summary class="advanced-summary">
+                            <span class="advanced-icon">⚙️</span>
+                            <span class="advanced-text">Advanced Options</span>
+                        </summary>
+                        
+                        <!-- Threshold Filter -->
+                        <div class="threshold-control">
+                            <label for="thresholdSlider" class="threshold-label">
+                                Similarity Threshold: <span id="thresholdValue">75%</span>
+                            </label>
+                            <div class="threshold-input-group">
+                                <input 
+                                    type="range" 
+                                    id="thresholdSlider" 
+                                    min="10" 
+                                    max="100" 
+                                    value="75" 
+                                    class="threshold-slider"
+                                >
+                                <input 
+                                    type="number" 
+                                    id="thresholdInput" 
+                                    min="10" 
+                                    max="100" 
+                                    value="75" 
+                                    class="threshold-input"
+                                >
+                                <span class="threshold-unit">%</span>
+                            </div>
+                            <div class="threshold-hint">Higher threshold = fewer, more similar results</div>
+                        </div>
+
+                        <!-- Cluster Search -->
+                        <div class="threshold-control">
+                            <label for="clusterSlider" class="threshold-label">
+                                Clusters to search: <span id="clusterValue">10</span>
+                            </label>
+                            <div class="threshold-input-group">
+                                <input type="range" id="clusterSlider" min="1" max="80" value="10" class="threshold-slider">
+                                <input type="number" id="clusterInput" min="1" max="80" value="10" class="threshold-input">
+                            </div>
+                            <div class="threshold-hint">Higher value = search more clusters (slower, more comprehensive)</div>
+                        </div>
+                    </details>
+                    
+                    <div class="upload-controls">
+                        <button class="btn btn-primary" id="searchBtn" disabled>
+                            <span class="btn-icon">🔍</span>
+                            <span class="btn-text">Find SOURCE</span>
+                        </button>
+                        <button class="btn btn-secondary" id="clearBtn" style="display: none;">
+                            <span class="btn-icon">🗑️</span>
+                            <span class="btn-text">Clear</span>
+                        </button>
+                    </div>
+                    
+                    <div class="status" id="status" style="display: none;"></div>
+                </section>
+
+                <section class="panel results-panel">
+                    <div class="panel-header">
+                        <h2>🔍 Search Results</h2>
+                        <div class="results-info" id="resultsInfo" style="display: none;">
+                            <span id="resultsCount">0</span> sources found
+                        </div>
+                    </div>
+                    
+                    <div class="results-container">
+                        <div id="results">
+                            <div class="placeholder">
+                                <div class="placeholder-icon">📄</div>
+                                <div class="placeholder-title">No search performed yet</div>
+                                <div class="placeholder-subtitle">Upload an image and click "Find SOURCE" to search</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+	</div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Reverse Hentai Search, by EchiCode</p>
+        </div>
+    </footer>
+    <section style="max-width: 900px; margin: 0.5rem auto">
+  <h2 style="font-size: 1.8rem; margin-bottom: 1rem; border-bottom: 2px solid #eee;">
+    About This Project
+  </h2>
+  <p style="line-height: 1.6; color: #444;">
+  This tool is a fully client-side reverse image search engine for hentai manga. 
+  It uses <strong>Dino embeddings</strong> — a deep learning model trained to understand the content of images — 
+  allowing it to match pages even if they’ve been resized, compressed, or cropped. 
+  <strong> Everything runs in your browser for maximum privacy and speed.</strong>
+  </p>
+  <p style="line-height: 1.6; color: #444; margin-top: 0.25rem;">
+  The current alpha version indexes <strong>100,000 galleries</strong>. We’re actively working to expand coverage to <strong>1M galleries</strong>. 
+  Your help would enable us to achieve this while keeping the system <strong>100% private, offline, and ad-free</strong>.
+  </p>
+</section>
+    <script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@petamoriken/float16@1.1.4/float16.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
