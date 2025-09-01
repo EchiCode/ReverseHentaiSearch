@@ -52,12 +52,11 @@ Place generated data files (embeddings, cluster IDs, metadata chunks) in the app
 
 To build your own search dataset:
 
-1. Extract images and save to galleries
-2. Run full script:
-   ```bash
-   python -m scripts/main.py --no-download
-   ```
-3. The full result, clustered and all, is in clusters. Change the folder in the client to this one.
+1. Extract images and save to galleries; check format compatible with the output of scripts/scrape.py.
+- Either run a simple clustering via 
+```scripts/main_just_hash.py --no-download``
+- Otherwise, for more finetuning, call ```scripts/hash/embed_existing_galleries.py``` and build the clustering via ``scripts/clusters```, with optional modifing the clustering.
+2. The full result, clustered and all, is in clusters. Change the folder in the client to this one.
 
 All scripts are modular — you can plug in your own galleries or tweak the embedding pipeline.
 
